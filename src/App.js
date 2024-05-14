@@ -1,8 +1,7 @@
-// App.js
-
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { generateGeofences } from './generateGeofence';
+import CoordinateInput from './GeofenceSearch';
 
 const containerStyle = {
   width: '100vw',
@@ -25,7 +24,7 @@ function MapWithGeofences({ geofences }) {
   console.log("Marker Positions:", markerPositions);  // Debug the marker positions
 
   return (
-    <LoadScript googleMapsApiKey="YOUR_API_KEY">
+    <LoadScript googleMapsApiKey="AIzaSyB_oFQ3l8sdvksjPmf-q5lK75YPv0N2Kp4">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -37,6 +36,7 @@ function MapWithGeofences({ geofences }) {
             position={position}
           />
         ))}
+         <CoordinateInput geofences={geofences} />
       </GoogleMap>
     </LoadScript>
   );
